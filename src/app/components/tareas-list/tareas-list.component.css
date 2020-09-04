@@ -1,0 +1,10 @@
+
+.tableFixHead          { overflow-y: auto; height: 50vh; }
+.tableFixHead thead th { position: sticky; top: 0; }
+
+textarea {resize: none}
+
+td {
+    white-space: normal !important; 
+    word-wrap: break-word;  
+  }

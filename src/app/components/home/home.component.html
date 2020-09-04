@@ -1,0 +1,32 @@
+<div class="container mt-3">
+    <form [formGroup]="dataForm" (ngSubmit)="saveTarea()" class="row">
+        <div class="col-10">
+            <textarea   class="form-control form-control-lg"
+                        formControlName="descripcion"
+                        rows="3"
+                        placeholder="Ingrese aqui la descripcion de la tarea..."></textarea>
+        </div>
+        <div class="col-2">
+                <button class="btn btn-lg btn-block"
+                        [ngClass]="{
+                            'btn-primary': dataForm.valid,
+                            'btn-secondary': !dataForm.valid
+                        }"
+                        type="submit">
+                        Agregar tarea
+                </button>
+        </div>
+    </form>
+        <app-tareas-list ($removeTareaId)="removeTarea($event)" [tareas]="tareas"></app-tareas-list>
+        <div    *ngIf="!connectivity"
+                class="alert row no-gutters alert-danger text-center mt-3 align-items-center" 
+                style="height: 50vh;">
+                <div class="container">
+                    <h4 class="danger-heading">No hay conexion con el servidor</h4>
+                    <p class="mt-3">
+                        <i class="fa fa-exclamation fa-2x"></i>
+                    </p>
+                    <p> {{ error }} </p>
+                </div>
+    </div>
+</div>
